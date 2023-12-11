@@ -1,8 +1,10 @@
 <div align="center">
 
-# Store app
+# Test-task
 
-### Небольшой интернет магазин, реализованный с помощью Mobx-State-Tree
+### ТЗ для данного проекта лежит в файле TZ.md
+
+### Для просмотра веб-страницы тыкни на картинку внизу 👇
 
 [![Header](https://github.com/solovpro/test-task/raw/master/src/assets/img/screenshot.png)](https://solovpro.github.io/)
 
