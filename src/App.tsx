@@ -11,15 +11,18 @@ const App = () => {
    const navigate = useNavigate();
 
    useEffect(() => {
-      if (window.location.pathname === '/login' && localStorage.getItem('isLogin') === 'true') {
+      if (
+         window.location.pathname === `${process.env.REACT_APP_PUBLIC_URL}/login` &&
+         localStorage.getItem('isLogin') === 'true'
+      ) {
          // Если авториз-ный user переходит на страницу /login, то он попадает на browse страницу
-         navigate('/browse');
+         navigate(`${process.env.REACT_APP_PUBLIC_URL}/browse`);
       } else if (
-         window.location.pathname === '/browse' &&
+         window.location.pathname === `${process.env.REACT_APP_PUBLIC_URL}/browse` &&
          localStorage.getItem('isLogin') !== 'true'
       ) {
          // Если неавториз-ный user переходит на страницу /browse, то он попадает на login страницуs
-         navigate('/login');
+         navigate(`${process.env.REACT_APP_PUBLIC_URL}/login`);
       }
    }, [window.location.pathname]);
 
@@ -35,9 +38,9 @@ const App = () => {
 
    return (
       <Routes>
-         <Route path='/' element={<Main isLogin={isLogin} />} />
-         <Route path='/browse' element={<Browse setIsLogin={setIsLogin} />} />
-         <Route path='/login' element={<Login setIsLogin={setIsLogin} />} />
+         <Route path={`${process.env.REACT_APP_PUBLIC_URL}/`} element={<Main isLogin={isLogin} />} />
+         <Route path={`${process.env.REACT_APP_PUBLIC_URL}/browse`} element={<Browse setIsLogin={setIsLogin} />} />
+         <Route path={`${process.env.REACT_APP_PUBLIC_URL}/login`} element={<Login setIsLogin={setIsLogin} />} />
          <Route path='*' element={<NoMatch />} />
       </Routes>
    );

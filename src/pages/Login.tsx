@@ -14,14 +14,14 @@ const Login: React.FC<LoginProps> = ({ setIsLogin }) => {
    const login = () => {
       setIsLogin(true);
 
-      navigate('/');
+      navigate(`${process.env.REACT_APP_PUBLIC_URL}/`);
    };
 
    return (
       <div className={s.wrapper}>
          <h1 className={s.title}>Login Page</h1>
          <div className={s.buttons}>
-            <Link to={'/'} className={s.button}>
+            <Link to={`${process.env.REACT_APP_PUBLIC_URL}/`} className={s.button}>
                <button className={s.buttonMain}>Main Page</button>
             </Link>
             <button onClick={login} className={s.buttonLogin}>

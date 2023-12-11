@@ -7,7 +7,7 @@ const NoMatch = () => {
       <div className={s.wrapper}>
          <h1 className={s.title}>Pages is not found</h1>
          <div className={s.buttons}>
-            <Link to={'/'} className={s.button}>
+            <Link to={`${process.env.REACT_APP_PUBLIC_URL}/`} className={s.button}>
                <button className={s.buttonMain}>MainPage</button>
             </Link>
          </div>
