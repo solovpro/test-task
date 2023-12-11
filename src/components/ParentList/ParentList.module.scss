@@ -1,0 +1,47 @@
+.dataParent {
+   width: 40%;
+
+   &__Item {
+      display: flex;
+      justify-content: center;
+      flex-flow: column;
+      background-color: #a9a9a9;
+      width: 100%;
+      margin: 10px 0;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 10px;
+
+      &:hover {
+         opacity: 0.8;
+      }
+   }
+
+   &__Deep1 {
+      margin-left: 25px;
+   }
+
+   &__Deep2 {
+      margin-left: 50px;
+   }
+
+   &__Deep3 {
+      margin-left: 75px;
+   }
+
+   &__Deep4 {
+      margin-left: 100px;
+   }
+
+   &__Loading {
+      display: flex;
+      justify-content: center;
+      font-size: 18px;
+
+      &Img {
+         width: 100px;
+         height: 50px;
+      }
+   }
+}

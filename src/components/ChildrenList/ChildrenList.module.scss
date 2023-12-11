@@ -1,0 +1,45 @@
+.dataChildren {
+   width: 50%;
+   margin: 0 0 0 20px;
+
+   &__Item {
+      display: flex;
+      justify-content: center;
+      flex-flow: column;
+      background-color: #a9a9a9;
+      width: 100%;
+      margin: 10px 0;
+      border-radius: 10px;
+      font-size: 18px;
+      padding: 10px;
+   }
+
+   &__Header {
+      display: flex;
+      &Form {
+         width: 60%;
+
+         &_Input {
+            width: 70%;
+            height: 30px;
+            outline: none;
+            border: 1px solid #555;
+            border-radius: 5px;
+            font-size: 17px;
+         }
+         &_Button {
+            background-color: #555;
+            color: #fff;
+            margin: 0 0 0 10px;
+            height: 35px;
+         }
+      }
+
+      &SortButton {
+         background-color: #555;
+         color: #fff;
+         margin: 0 0 0 10px;
+         height: 35px;
+      }
+   }
+}
