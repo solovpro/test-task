@@ -12,11 +12,11 @@ const Main: React.FC<MainProps> = ({ isLogin }) => {
          <h1 className={s.title}>Main Page</h1>
          <div className={s.buttons}>
             {isLogin ? (
-               <Link to={`/test-task/browse`} className={s.button}>
+               <Link to={`/browse`} className={s.button}>
                   <button className={s.buttonBrowse}>Browse Page</button>
                </Link>
             ) : (
-               <Link to={`/test-task/login`} className={s.button}>
+               <Link to={`/login`} className={s.button}>
                   <button className={s.buttonLogin}>Login Page</button>
                </Link>
             )}

@@ -12,9 +12,11 @@ import s from '../App.module.scss';
 
 interface BrowseProps {
    setIsLogin: setState<boolean>;
+   setIsLogout: setState<boolean>;
+   isLogout: boolean;
 }
 
-const Browse: React.FC<BrowseProps> = ({ setIsLogin }) => {
+const Browse: React.FC<BrowseProps> = ({ setIsLogin, setIsLogout, isLogout }) => {
    const [data, setData] = useState<IFlattenDataEl[]>([]);
 
    const [filteredChilden, setFilteredChildren] = useState<IFlattenDataEl[]>([]);
@@ -30,17 +32,22 @@ const Browse: React.FC<BrowseProps> = ({ setIsLogin }) => {
       });
    }, []);
 
+   useEffect(() => {
+      if (isLogout) {
+         navigate(`/login`);
+      }
+   }, [isLogout]);
+
    const logout = () => {
       setIsLogin(false);
-
-      navigate(`/test-task/login`);
+      setIsLogout(true);
    };
 
    return (
       <div className={s.wrapper}>
          <h1 className={s.title}>Browse Page</h1>
          <div className={s.buttons}>
-            <Link to={`/test-task/`} className={s.button}>
+            <Link to={`/`} className={s.button}>
                <button className={s.buttonMain}>Main Page</button>
             </Link>
             <button onClick={logout} className={s.buttonLogout}>

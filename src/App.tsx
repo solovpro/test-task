@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 
 import NoMatch from './pages/NoMatch';
 import Browse from './pages/Browse';
@@ -8,23 +8,20 @@ import Main from './pages/Main';
 
 const App = () => {
    const [isLogin, setIsLogin] = useState<boolean>(false);
+   const [isLogout, setIsLogout] = useState<boolean>(false);
+
    const navigate = useNavigate();
+   const location = useLocation();
 
    useEffect(() => {
-      if (
-         window.location.pathname === `/test-task/login` &&
-         localStorage.getItem('isLogin') === 'true'
-      ) {
-         // Если авториз-ный user переходит на страницу /login, то он попадает на browse страницу
-         navigate(`/test-task/browse`);
-      } else if (
-         window.location.pathname === `/test-task/browse` &&
-         localStorage.getItem('isLogin') !== 'true'
-      ) {
-         // Если неавториз-ный user переходит на страницу /browse, то он попадает на login страницуs
-         navigate(`/test-task/`);
+      if (location.pathname === '/browse' && !isLogin && !isLogout) {
+         navigate('/');
+      } else if (location.pathname === '/login' && localStorage.getItem('isLogin') === 'true') {
+         navigate('/browse');
       }
-   }, [window.location.pathname]);
+
+      setIsLogout(false);
+   }, [location.pathname]);
 
    useEffect(() => {
       if (localStorage.getItem('isLogin') === 'true') {
@@ -38,9 +35,14 @@ const App = () => {
 
    return (
       <Routes>
-         <Route path={`/test-task/`} element={<Main isLogin={isLogin} />} />
-         <Route path={`/test-task/browse`} element={<Browse setIsLogin={setIsLogin} />} />
-         <Route path={`/test-task/login`} element={<Login setIsLogin={setIsLogin} />} />
+         <Route path={`/`} element={<Main isLogin={isLogin} />} />
+         <Route
+            path={`/browse`}
+            element={
+               <Browse setIsLogin={setIsLogin} setIsLogout={setIsLogout} isLogout={isLogout} />
+            }
+         />
+         <Route path={`/login`} element={<Login setIsLogin={setIsLogin} />} />
          <Route path='*' element={<NoMatch />} />
       </Routes>
    );
