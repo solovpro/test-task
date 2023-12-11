@@ -22,14 +22,11 @@
    },
    "devDependencies": {
       "classnames": "^2.3.2",
-      "gh-pages": "^6.1.0",
       "sass": "^1.69.5"
    },
    "scripts": {
       "start": "react-scripts start",
-      "build": "react-scripts build",
-      "predeploy": "npm run build",
-      "deploy": "gh-pages -d build"
+      "build": "react-scripts build"
    },
    "eslintConfig": {
       "extends": [

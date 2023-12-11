@@ -4,9 +4,7 @@
 
 ### ТЗ для данного проекта лежит в файле TZ.md
 
-### Для просмотра веб-страницы тыкни на картинку внизу 👇
-
-[![Header](https://github.com/solovpro/test-task/raw/master/src/assets/img/screenshot.png)](https://solovpro.github.io/)
+[![Header](https://github.com/solovpro/test-task/raw/master/src/assets/img/screenshot.png)]
 
 ### Стек технологий:
 
