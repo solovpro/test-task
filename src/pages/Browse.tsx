@@ -33,14 +33,14 @@ const Browse: React.FC<BrowseProps> = ({ setIsLogin }) => {
    const logout = () => {
       setIsLogin(false);
 
-      navigate(`${process.env.REACT_APP_PUBLIC_URL}/login`);
+      navigate(`/test-task/login`);
    };
 
    return (
       <div className={s.wrapper}>
          <h1 className={s.title}>Browse Page</h1>
          <div className={s.buttons}>
-            <Link to={`${process.env.REACT_APP_PUBLIC_URL}/`} className={s.button}>
+            <Link to={`/test-task/`} className={s.button}>
                <button className={s.buttonMain}>Main Page</button>
             </Link>
             <button onClick={logout} className={s.buttonLogout}>
