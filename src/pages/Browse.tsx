@@ -36,10 +36,6 @@ const Browse: React.FC<BrowseProps> = ({ setIsLogin }) => {
       navigate(`${process.env.REACT_APP_PUBLIC_URL}/login`);
    };
 
-   useEffect(() => {
-      console.log(filteredChilden);
-   }, [filteredChilden]);
-
    return (
       <div className={s.wrapper}>
          <h1 className={s.title}>Browse Page</h1>

@@ -18,7 +18,7 @@ const ChildrenListHeader: React.FC<ChildrenListHeaderProps> = ({
    const [sortByName, setSortByName] = useState<boolean>(true);
    const [searchValue, setSearchValue] = useState<string>('');
 
-   const onSubmitForm = (e: FormEvent) => {
+   const onSubmitSearch = (e: FormEvent) => {
       e.preventDefault();
 
       const searchedElements = childen?.filter((el) => el.name.includes(searchValue));
@@ -26,19 +26,21 @@ const ChildrenListHeader: React.FC<ChildrenListHeaderProps> = ({
       setFilteredChildren(searchedElements);
    };
 
-   const sortedElements = (e: FormEvent) => {
+   const onSubmitSorted = (e: FormEvent) => {
       e.preventDefault();
 
       const sortedChildren = filteredChilden?.sort((a, b) =>
          sortByName ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name),
       );
 
-      setFilteredChildren(sortedChildren);
+      setFilteredChildren([...sortedChildren]);
+
       setSortByName((value) => !value);
    };
+   
    return (
       <div className={s.dataChildren__Header}>
-         <form className={s.dataChildren__HeaderForm} onSubmit={(e) => onSubmitForm(e)}>
+         <form className={s.dataChildren__HeaderForm} onSubmit={(e) => onSubmitSearch(e)}>
             <input
                type='text'
                value={searchValue}
@@ -49,8 +51,10 @@ const ChildrenListHeader: React.FC<ChildrenListHeaderProps> = ({
                search
             </button>
          </form>
-         <form onSubmit={(e) => sortedElements(e)}>
-            <button className={s.dataChildren__HeaderSortButton}>sort by name</button>
+         <form onSubmit={(e) => onSubmitSorted(e)}>
+            <button className={s.dataChildren__HeaderSortButton} type='submit'>
+               sort by name
+            </button>
          </form>
       </div>
    );
